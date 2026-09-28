@@ -8,8 +8,16 @@ class Program
     {
         return x + y;
     }
+
+    static void DisplayGreeting(string name)
+    {
+        Console.WriteLine($"Welcome {name} pleased to meet you.");
+    }
     static void Main(string[] args)
     {
+        DisplayGreeting("Bob");
+        double answer = AddNumbers(12.234, 10);
+        Console.WriteLine(answer);
     //    int x = 10;
     //    int y = 20;
     //    int z = 30;
@@ -50,12 +58,12 @@ class Program
     //         Console.WriteLine(i);
     //     }
 
-    List<string> myFriends = ["bob", "betty", "Bubba"];
+    // List<string> myFriends = ["bob", "betty", "Bubba"];
 
-    foreach(string name in myFriends)
-        {
-            Console.WriteLine(name);
-        }
+    // foreach(string name in myFriends)
+    //     {
+    //         Console.WriteLine(name);
+    //     }
 
     }
 }
