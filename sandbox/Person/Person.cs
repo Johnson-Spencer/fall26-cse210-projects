@@ -15,9 +15,9 @@ class Person
     }
 
 
-    public void DisplayPersonInformation()
+    public string GetPersonInformation()
     {
-        Console.WriteLine($"{_firstName} {_lastName} is {_age} years old and weighs {_weight} pounds");
+        return ($"{_firstName} {_lastName} is {_age} years old and weighs {_weight} pounds");
     }
 
 

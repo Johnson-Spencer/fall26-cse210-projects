@@ -4,10 +4,13 @@
     {
         Person myPerson = new Person("Bob", "Floyd", 56, 238);
 
-        myPerson.DisplayPersonInformation();
+        Console.WriteLine(myPerson.GetPersonInformation());
 
-        Police myPloice = new Police("Lance", "Bob", 34, 186, "Taser");
+        Police myPolice = new Police("Lance", "Bob", 34, 186, "Taser");
 
-        myPloice.DisplayPersonInformation();
+        Console.WriteLine(myPolice.GetPoliceInformation());
+
+        Doctor myDoctor = new Doctor("Billy", "Payne", 20, 150, "Knife");
+        Console.WriteLine(myDoctor.GetDoctorInformation());
     }
 }
