@@ -96,13 +96,36 @@ class BaseActivity
         Console.WriteLine("Please enter a positive whole number.");
     } 
     }
+private Random _random = new Random();
 
-//   public string GetPromptString(List<FlaggedString> prompts)
-// {
-//     Random random = new Random();
-//     int index = random.Next(prompts.Count);
+public string GetPromptString(List<FlaggedString> prompts)
+{
+   List<FlaggedString> availablePrompts =
+            new List<FlaggedString>();
 
-//     return prompts[index].GetPrompt();
-// }
+        foreach (FlaggedString prompt in prompts)
+        {
+            if (!prompt.GetHasBeenUsed())
+            {
+                availablePrompts.Add(prompt);
+            }
+        }
+
+    if (availablePrompts.Count == 0)
+    {
+        foreach (FlaggedString prompt in prompts)
+        {
+            prompt.SetHasBeenUsed(false);
+            availablePrompts.Add(prompt);
+        }
+    }
+
+    int index = _random.Next(availablePrompts.Count);
+    FlaggedString selectedPrompt = availablePrompts[index];
+
+    selectedPrompt.SetHasBeenUsed(true);
+
+    return selectedPrompt.GetPrompt();
+}
 
 }

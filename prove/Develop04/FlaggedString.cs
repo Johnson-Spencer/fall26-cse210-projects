@@ -1,30 +1,26 @@
-// class FlaggedString : BaseActivity
-// {
-    
-//     private string _prompt;
-//     private bool _hasBeenUsed;
+class FlaggedString
+{
+    private string _prompt;
+    private bool _hasBeenUsed;
 
-//     public FlaggedString(string prompt, bool hidden) : base (name, description)
-//     {
-        
-//     }
+    public FlaggedString(string prompt)
+    {
+        _prompt = prompt;
+        _hasBeenUsed = false;
+    }
 
-//     public string GetPrompt()
-//     {
-        
-//     }
+    public string GetPrompt()
+    {
+        return _prompt;
+    }
 
-//     public string SetHasBeenUsed()
-//     {
-        
-//     }
+    public bool GetHasBeenUsed()
+    {
+        return _hasBeenUsed;
+    }
 
-//     public bool GetHasBeenUsed()
-//     {
-        
-//     }
-
-
-
-
-// }
+    public void SetHasBeenUsed(bool value)
+    {
+        _hasBeenUsed = value;
+    }
+}
