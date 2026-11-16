@@ -10,8 +10,13 @@ class Doctor : Person
         _tools = tools;
     }
 
-    public string GetDoctorInformation()
+    public override string GetPersonInformation()
     {
         return $"{GetPersonInformation()} Doctor Tools: {_tools}";
+    }
+
+    public override double GetSalary()
+    {
+        return 98000.00;
     }
 }
