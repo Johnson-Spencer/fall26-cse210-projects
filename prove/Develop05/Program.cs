@@ -11,5 +11,8 @@ class Program
        Console.WriteLine(mySimpleGoal.GetConsoleString());
        mySimpleGoal.RecordEvent();
        Console.WriteLine(mySimpleGoal.GetConsoleString());
+       Goals myGoals = new Goals();
+       myGoals.AddGoal(myGoals);
+
     }
 }

@@ -1,15 +1,21 @@
-using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 abstract class BaseGoal
 {
-    
     private string _name;
     private string _description;
     private int _points;
     private bool _complete;
     private string _goalType;
 
-    public BaseGoal(string name, string description, int points, bool complete, string goalType)
+    protected string Name => _name;
+    protected string Description => _description;
+    protected int Points => _points;
+    protected bool IsComplete => _complete;
+    protected string GoalType => _goalType;
+
+    public BaseGoal(string name, string description, int points,
+        bool complete, string goalType)
     {
         _name = name;
         _description = description;
@@ -18,47 +24,45 @@ abstract class BaseGoal
         _goalType = goalType;
     }
 
-
     public BaseGoal(string goalType)
     {
-        SetGoalName();
-        SetGoalDescription();
-        SetGoalPoints();
-        _complete = false;
         _goalType = goalType;
-    }
 
-    private void SetGoalName()
-    {
-        Console.Write("Please enter the name of your goal: ");
+        Console.Write("Enter the name of your goal: ");
         _name = Console.ReadLine();
-    }
 
-    private void SetGoalDescription()
-    {
-        Console.Write("Please enter the description of your goal: ");
+        Console.Write("Enter the description: ");
         _description = Console.ReadLine();
-    }
 
-    private void SetGoalPoints()
-    {
-        Console.Write("Please enter the Points of your goal: ");
+        Console.Write("Enter the points: ");
         _points = int.Parse(Console.ReadLine());
+
+        _complete = false;
     }
 
-    public virtual string GetConsoleString()
+    protected int CompleteGoal()
     {
-        string completeString = " ";
-        if(_complete)
-            completeString = "X";
-        return $"[{completeString} ] Goal name: {_name}, Description: {_description}, Points: {_points}";
-    }
+        if (_complete)
+        {
+            return 0;
+        }
 
-    public int MarkComplete()
-    {
         _complete = true;
         return _points;
     }
 
+    protected int EarnPoints()
+    {
+        return _points;
+    }
+
+    public virtual string GetConsoleString()
+    {
+        string status = _complete ? "X" : " ";
+        return $"[{status}] {_name} ({_description})";
+    }
+
     public abstract int RecordEvent();
+
+    public abstract string GetStringRepresentation();
 }
