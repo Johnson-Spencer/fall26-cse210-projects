@@ -1,21 +1,21 @@
 class SimpleGoal : BaseGoal
 {
-    public SimpleGoal(string name, string description, int points, bool status, string goalType)
-    : base(name, description, points, status, goalType)
+    public SimpleGoal() : base("Simple")
     {
-        
     }
-    public SimpleGoal() : base("Simple Goal")
+
+    public SimpleGoal(string name, string description, int points, bool complete)
+        : base(name, description, points, complete, "Simple")
     {
     }
 
     public override int RecordEvent()
     {
-        
-        return MarkComplete();
+        return CompleteGoal();
     }
 
-
-
-
+    public override string GetStringRepresentation()
+    {
+        return $"Simple|{Name}|{Description}|{Points}|{IsComplete}";
+    }
 }
